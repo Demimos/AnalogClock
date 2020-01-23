@@ -14,8 +14,11 @@ namespace AnalogClock
     public partial class Form1 : Form
     {
         private string Current { get; set; } = TimeZoneInfo.Local.DisplayName;
+        private Bitmap Back { get; set; } = new Bitmap(400 * 3 + 10, 400 * 3 + 10);// создадим картинку
+        private readonly Graphics g;
         public Form1()
         {
+            g = Graphics.FromImage(Back);
             InitializeComponent();
             MaximizeBox = false;
             foreach (var item in TimeZoneInfo.GetSystemTimeZones()) // прогруз комбобокс
@@ -25,6 +28,7 @@ namespace AnalogClock
                     Zone.SelectedItem=item.DisplayName;
             }
             
+
         }
 
         private void BackGroundRender()
@@ -32,9 +36,6 @@ namespace AnalogClock
             DateTime d = GetTime();
 
             date.Text = d.ToLongDateString(); // Дата, чтобы не запутаться
-
-            var back = new Bitmap(400 * 3 + 10, 400 * 3 + 10);// создадим картинку
-            var g = Graphics.FromImage(back);
 
             //циферблат
             g.Clear(Color.White);
@@ -105,8 +106,8 @@ namespace AnalogClock
             //Рисуем секунды
             g.DrawLine(new Pen(Color.Red), Center, Center, (float)(Center + lengthSeconds * Math.Cos(Math.PI / 2 - t_sec * (Math.PI / 180))),
                 (float)(Center - lengthSeconds * Math.Sin(Math.PI / 2 - t_sec * (Math.PI / 180))));
-
-            clockBox.BackgroundImage = back; //отправляем битмэп в бокс
+            clockBox.BackgroundImage = null; //чтобы клокбокс понял, что картинка перерисована
+            clockBox.BackgroundImage = Back; //отправляем битмэп в бокс
         }
 
         private DateTime GetTime()
