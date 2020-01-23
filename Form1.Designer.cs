@@ -29,20 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Zone = new System.Windows.Forms.ComboBox();
             this.dateText = new System.Windows.Forms.Label();
             this.clockBox = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.date = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.clockBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // Zone
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 428);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.Zone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Zone.FormattingEnabled = true;
+            this.Zone.Location = new System.Drawing.Point(12, 469);
+            this.Zone.Name = "Zone";
+            this.Zone.Size = new System.Drawing.Size(400, 21);
+            this.Zone.TabIndex = 0;
+            this.Zone.SelectedIndexChanged += new System.EventHandler(this.Zone_SelectedIndexChanged);
             // 
             // dateText
             // 
@@ -54,10 +59,14 @@
             // 
             // clockBox
             // 
-            this.clockBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.clockBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clockBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clockBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.clockBox.Location = new System.Drawing.Point(12, 12);
             this.clockBox.Name = "clockBox";
-            this.clockBox.Size = new System.Drawing.Size(410, 410);
+            this.clockBox.Size = new System.Drawing.Size(400, 411);
             this.clockBox.TabIndex = 2;
             this.clockBox.TabStop = false;
             // 
@@ -67,16 +76,30 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // date
+            // 
+            this.date.AutoSize = true;
+            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.date.Location = new System.Drawing.Point(12, 426);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(0, 39);
+            this.date.TabIndex = 3;
+            this.date.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 459);
+            this.ClientSize = new System.Drawing.Size(424, 502);
+            this.Controls.Add(this.date);
             this.Controls.Add(this.clockBox);
             this.Controls.Add(this.dateText);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Zone);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Clock";
             ((System.ComponentModel.ISupportInitialize)(this.clockBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -85,10 +108,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Zone;
         private System.Windows.Forms.Label dateText;
         private System.Windows.Forms.PictureBox clockBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label date;
     }
 }
 
