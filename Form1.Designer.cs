@@ -42,8 +42,9 @@
             this.Zone.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Zone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Zone.FormattingEnabled = true;
-            this.Zone.Location = new System.Drawing.Point(12, 469);
+            this.Zone.Location = new System.Drawing.Point(12, 468);
             this.Zone.Name = "Zone";
             this.Zone.Size = new System.Drawing.Size(400, 21);
             this.Zone.TabIndex = 0;

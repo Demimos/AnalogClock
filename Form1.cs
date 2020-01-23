@@ -14,7 +14,9 @@ namespace AnalogClock
     public partial class Form1 : Form
     {
         private string Current { get; set; } = TimeZoneInfo.Local.DisplayName;
-        private Bitmap Back { get; set; } = new Bitmap(400 * 3 + 10, 400 * 3 + 10);// создадим картинку
+        private readonly Bitmap Back  = new Bitmap(400 * 3 + 10, 400 * 3 + 10);// создадим картинку
+        private readonly Font font = new Font(FontFamily.GenericSansSerif,
+            40.0F, FontStyle.Bold);
         private readonly Graphics g;
         public Form1()
         {
@@ -65,8 +67,7 @@ namespace AnalogClock
                 stop = 24;
             }
 
-            Font font = new Font(FontFamily.GenericSansSerif,
-            40.0F, FontStyle.Bold);
+            
             var pad1 = 26;
             var pad2 = 35;
             for (var th = start; th <= stop; th++)
